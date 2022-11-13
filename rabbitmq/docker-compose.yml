@@ -1,0 +1,20 @@
+version: "3"
+services:
+    rabbitmq:
+        image: rabbitmq:3-management-alpine
+        container_name: rabbitmq
+        volumes:
+            - rabbit_data:/etc/rabbitmq/
+            - rabbit_lib:/var/lib/rabbitmq/
+            - rabbit_log:/var/log/rabbitmq/
+        environment:
+            - RABBITMQ_ERLANG_COOKIE=cookie
+            - RABBITMQ_DEFAULT_USER=admin
+            - RABBITMQ_DEFAULT_PASS=admin
+        ports:
+            - 5672:5672
+            - 15672:15672
+volumes:
+        rabbit_data: 
+        rabbit_lib:
+        rabbit_log:

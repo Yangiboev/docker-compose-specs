@@ -1,0 +1,12 @@
+version: '3.7'
+services: 
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports: 
+      - "6379:6379"
+    volumes:
+      - "redis:/data/redis"
+    command: redis-server  --requirepass redis
+volumes:
+  redis:
